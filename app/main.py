@@ -28,4 +28,4 @@ app.include_router(votes.router)
 
 @app.get("/")
 def root():
-    return {"detail": "Hello World"} 
+    return {"detail": "Hello World!!!"} 

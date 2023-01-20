@@ -1,0 +1,14 @@
+[Unit]
+Description=example-fastapi
+After=network.target
+
+[Service]
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/example-fastapi/src
+Environment="PATH=/home/pi/example-fastapi/venv/bin"
+EnvironmentFile=/home/pi/.env
+ExecStart=/home/pi/example-fastapi/venv/bin/gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target
